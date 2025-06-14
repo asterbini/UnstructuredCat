@@ -5,7 +5,7 @@ description = "A Cheshire Cat AI plugin for document ingestion using the **unstr
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "langchain>=0.2.1",
-    "pydantic>=2.4.2",
-    "unstructured[all-docs]>=0.17.2",
+    "langchain==0.2.1",
+    "pydantic==2.4.2",
+    "unstructured[all-docs]==0.17.2",
 ]
