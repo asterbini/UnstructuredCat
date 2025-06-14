@@ -4,4 +4,11 @@
 
 A Cheshire Cat AI plugin for document ingestion using the **[Unstructured](https://docs.unstructured.io)** lib.
 
+## required linux packages
+- libreoffice
+- python3-opencv
+- libmagic-dev
+- pandoc
+- poppler-utils
+- tesseract-ocr
 
