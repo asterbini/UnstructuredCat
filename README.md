@@ -11,4 +11,4 @@ A Cheshire Cat AI plugin for document ingestion using the **[Unstructured](https
 - pandoc
 - poppler-utils
 - tesseract-ocr
-
+- tesseract-ocs-LANG (ita, eng ...)
