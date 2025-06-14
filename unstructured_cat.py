@@ -2,6 +2,7 @@ from cat.mad_hatter.decorators import tool, hook, plugin
 from pydantic import BaseModel
 from datetime import datetime, date
 
+'''
 class MySettings(BaseModel):
     required_int: int
     optional_int: int = 69
@@ -13,6 +14,7 @@ class MySettings(BaseModel):
 @plugin
 def settings_model():
     return MySettings
+'''
 
 from typing import Iterator
 from langchain.docstore.document import Document
@@ -23,10 +25,20 @@ from unstructured.partition.auto import partition
 class UnstructuredParser(BaseBlobParser):
     def lazy_parse(self, blob: Blob) -> Iterator[Document]:
         with blob.as_bytes_io() as file:
-            doc = partition(file) # use unstructured library to parse the document
-            for page,paragraph in enumerate(doc):
-                content = f"{paragraph}\n"
-                metadata = {'source': blob.source, 'page': page, **paragraph.metadata}
+            doc = partition(file=file, include_page_breaks=True) # use unstructured library to parse the document
+            content = ""
+            page = 0
+            for paragraph in doc:
+                P = paragraph.metadata.page_number
+                if P and P != page:
+                    if content:
+                        metadata = {'source': blob.source, 'page': page, **paragraph.metadata.to_dict()}
+                        yield Document(page_content=content, metadata=metadata)
+                    page = P
+                    content = ""
+                content += f"{paragraph}\n"
+            if content:
+                metadata = {'source': blob.source, 'page': page, **paragraph.metadata.to_dict()}
                 yield Document(page_content=content, metadata=metadata)
 
 import mimetypes

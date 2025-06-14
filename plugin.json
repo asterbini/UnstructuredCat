@@ -1,7 +1,7 @@
 {
     "name": "Unstructured Cat",
     "version": "0.0.1",
-    "description": "A Cheshire Cat AI plugin for document ingestion using the unstructured lib.",
+    "description": "A Cheshire Cat AI plugin for document ingestion using the **unstructured** lib.",
     "author_name": "Andrea Sterbini",
     "plugin_url": "https://github.com/asterbini/UnstructuredCat",
     "tags": "cat, template, example",

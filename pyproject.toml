@@ -1,11 +1,11 @@
 [project]
 name = "UnstructuredCat"
 version = "0.1.0"
-description = "A Cheshire Cat AI plugin for document ingestion using the unstructured lib"
+description = "A Cheshire Cat AI plugin for document ingestion using the **unstructured** lib"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "langchain>=0.3.25",
-    "pydantic>=2.11.7",
+    "langchain>=0.2.1",
+    "pydantic>=2.4.2",
     "unstructured[all-docs]>=0.17.2",
 ]
