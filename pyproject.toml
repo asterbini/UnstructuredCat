@@ -1,0 +1,9 @@
+[project]
+name = "UnstructuredCat"
+version = "0.1.0"
+description = "A Cheshire Cat AI plugin for document ingestion using the unstructured lib"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "unstructured>=0.17.2",
+]
